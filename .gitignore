@@ -58,3 +58,12 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+RoomVR.app
+Assets/Photon/PhotonChat/Demos
+Assets/Photon/PhotonVoice/Demos
+Assets/Photon/PhotonUnityNetworking/Demos
+Assets/Photon/PhotonRealtime/Demos
+Assets/Photon/PhotonChat/Demos.meta
+Assets/Photon/PhotonRealtime/Demos.meta
+Assets/Photon/PhotonUnityNetworking/Demos.meta
+Assets/Photon/PhotonVoice/Demos.meta
