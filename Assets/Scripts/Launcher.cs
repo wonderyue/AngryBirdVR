@@ -180,7 +180,6 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         LogFeedback("<Color=Green>OnJoinedRoom</Color> with " + PhotonNetwork.CurrentRoom.PlayerCount + " Player(s)");
         PhotonNetwork.NickName = "Player " + PhotonNetwork.CurrentRoom.PlayerCount;
-        // PhotonNetwork.LoadLevel("duo");
     }
 
     /// <summary>

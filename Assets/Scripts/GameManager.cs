@@ -32,11 +32,11 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     [Tooltip("The dafault position of player1")]
     [SerializeField]
-    private GameObject player1SpawnPoint;
+    private Transform player1SpawnPoint;
 
     [Tooltip("The dafault position of player1")]
     [SerializeField]
-    private GameObject player2SpawnPoint;
+    private Transform player2SpawnPoint;
 
     #endregion
 
@@ -50,12 +50,13 @@ public class GameManager : MonoBehaviourPunCallbacks
         Instance = this;
         if (PhotonNetwork.IsMasterClient) 
         {
-            playerObject.transform.position = player1SpawnPoint.transform.position;
+            playerObject.transform.position = player1SpawnPoint.position;
         } 
         else 
         {
-            playerObject.transform.position = player2SpawnPoint.transform.position;
+            playerObject.transform.position = player2SpawnPoint.position;
         }
+        PhotonNetwork.Instantiate("Prefabs/PhotonSpeaker", Vector3.zero, Quaternion.identity,0);
     }
 
     /// <summary>
