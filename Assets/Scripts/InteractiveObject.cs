@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CubeController : MonoBehaviour
+public class InteractiveObject : MonoBehaviour
 {
     protected bool isPointEnter = false;
     protected bool isPointDown = false;
@@ -20,7 +20,7 @@ public class CubeController : MonoBehaviour
     {
         isPointDown = false;
     }
-    
+
     public void PointDown()
     {
         isPointDown = true;
