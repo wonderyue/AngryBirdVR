@@ -26,9 +26,17 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     private GameObject instance;
 
-    [Tooltip("The prefab to use for representing the player")]
+    [Tooltip("PlayerObject")]
     [SerializeField]
-    private GameObject playerPrefab;
+    private GameObject playerObject;
+
+    [Tooltip("The dafault position of player1")]
+    [SerializeField]
+    private GameObject player1SpawnPoint;
+
+    [Tooltip("The dafault position of player1")]
+    [SerializeField]
+    private GameObject player2SpawnPoint;
 
     #endregion
 
@@ -40,6 +48,14 @@ public class GameManager : MonoBehaviourPunCallbacks
     void Start()
     {
         Instance = this;
+        if (PhotonNetwork.IsMasterClient) 
+        {
+            playerObject.transform.position = player1SpawnPoint.transform.position;
+        } 
+        else 
+        {
+            playerObject.transform.position = player2SpawnPoint.transform.position;
+        }
     }
 
     /// <summary>
@@ -50,6 +66,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         // "back" button of phone equals "Escape". quit app if that's pressed
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            LeaveRoom();
             QuitApplication();
         }
     }
