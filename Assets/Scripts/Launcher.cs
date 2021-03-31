@@ -22,6 +22,14 @@ public class Launcher : MonoBehaviourPunCallbacks
     [SerializeField]
     private Text feedbackText;
 
+    [Tooltip("Upper Arrow")]
+    [SerializeField]
+    private GameObject upperArrow;
+
+    [Tooltip("Lower Arrow")]
+    [SerializeField]
+    private GameObject lowerArrow;
+
     [Tooltip("The maximum number of players per room")]
     [SerializeField]
     private byte maxPlayersPerRoom = 2;
@@ -41,6 +49,8 @@ public class Launcher : MonoBehaviourPunCallbacks
     /// </summary>
     string gameVersion = "1";
 
+    int playerNumber = 1;
+
     #endregion
 
     #region MonoBehaviour CallBacks
@@ -54,6 +64,31 @@ public class Launcher : MonoBehaviourPunCallbacks
         // this makes sure we can use PhotonNetwork.LoadLevel() on the master client and all clients in the same room sync their level automatically
         PhotonNetwork.AutomaticallySyncScene = true;
 
+    }
+
+    /// <summary>
+    /// MonoBehaviour method called per frame.
+    /// </summary>
+    void Update()
+    {
+        float value = Input.GetAxis("Vertical");
+        if (value > 0.1) 
+        {
+            playerNumber = 1;
+        } 
+        else if (value < -0.1)
+        {
+            playerNumber = 2;
+        }
+        upperArrow.SetActive(playerNumber == 1);
+        lowerArrow.SetActive(playerNumber == 2);
+        if (Input.GetButtonDown("Submit")) 
+        {
+            if (playerNumber == 1)
+                StartOfflineGame();
+            else
+                Connect();
+        }
     }
 
     #endregion
