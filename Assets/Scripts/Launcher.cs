@@ -1,8 +1,7 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-
+﻿using Photon.Pun;
 using Photon.Realtime;
-using Photon.Pun;
+using UnityEngine;
+using UnityEngine.UI;
 
 #pragma warning disable 649
 
@@ -72,17 +71,17 @@ public class Launcher : MonoBehaviourPunCallbacks
     void Update()
     {
         float value = Input.GetAxis("Vertical");
-        if (value > 0.1) 
+        if (value > 0.1)
         {
             playerNumber = 1;
-        } 
+        }
         else if (value < -0.1)
         {
             playerNumber = 2;
         }
         upperArrow.SetActive(playerNumber == 1);
         lowerArrow.SetActive(playerNumber == 2);
-        if (Input.GetButtonDown("Submit")) 
+        if (Input.GetButtonDown("Submit"))
         {
             if (playerNumber == 1)
                 StartOfflineGame();
@@ -215,6 +214,10 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         LogFeedback("<Color=Green>OnJoinedRoom</Color> with " + PhotonNetwork.CurrentRoom.PlayerCount + " Player(s)");
         PhotonNetwork.NickName = "Player " + PhotonNetwork.CurrentRoom.PlayerCount;
+        if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount == PhotonNetwork.CurrentRoom.MaxPlayers)
+        {
+            PhotonNetwork.LoadLevel("duo");
+        }
     }
 
     /// <summary>
