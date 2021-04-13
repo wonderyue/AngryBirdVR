@@ -1,7 +1,8 @@
-﻿using Photon.Pun;
-using Photon.Realtime;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
+
+using Photon.Realtime;
+using Photon.Pun;
 
 #pragma warning disable 649
 
@@ -20,14 +21,6 @@ public class Launcher : MonoBehaviourPunCallbacks
     [Tooltip("The Ui Text to inform the user about the connection progress")]
     [SerializeField]
     private Text feedbackText;
-
-    [Tooltip("Upper Arrow")]
-    [SerializeField]
-    private GameObject upperArrow;
-
-    [Tooltip("Lower Arrow")]
-    [SerializeField]
-    private GameObject lowerArrow;
 
     [Tooltip("The maximum number of players per room")]
     [SerializeField]
@@ -48,8 +41,6 @@ public class Launcher : MonoBehaviourPunCallbacks
     /// </summary>
     string gameVersion = "1";
 
-    int playerNumber = 1;
-
     #endregion
 
     #region MonoBehaviour CallBacks
@@ -63,31 +54,6 @@ public class Launcher : MonoBehaviourPunCallbacks
         // this makes sure we can use PhotonNetwork.LoadLevel() on the master client and all clients in the same room sync their level automatically
         PhotonNetwork.AutomaticallySyncScene = true;
 
-    }
-
-    /// <summary>
-    /// MonoBehaviour method called per frame.
-    /// </summary>
-    void Update()
-    {
-        float value = Input.GetAxis("Vertical");
-        if (value > 0.1)
-        {
-            playerNumber = 1;
-        }
-        else if (value < -0.1)
-        {
-            playerNumber = 2;
-        }
-        upperArrow.SetActive(playerNumber == 1);
-        lowerArrow.SetActive(playerNumber == 2);
-        if (Input.GetButtonDown("Submit"))
-        {
-            if (playerNumber == 1)
-                StartOfflineGame();
-            else
-                Connect();
-        }
     }
 
     #endregion
@@ -214,10 +180,6 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         LogFeedback("<Color=Green>OnJoinedRoom</Color> with " + PhotonNetwork.CurrentRoom.PlayerCount + " Player(s)");
         PhotonNetwork.NickName = "Player " + PhotonNetwork.CurrentRoom.PlayerCount;
-        if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount == PhotonNetwork.CurrentRoom.MaxPlayers)
-        {
-            PhotonNetwork.LoadLevel("duo");
-        }
     }
 
     /// <summary>
