@@ -7,31 +7,39 @@ public class DragObject : MonoBehaviour
     Rigidbody rb;
     bool drag = false;
 
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    void Update()
+
+    public void OnMouseDown()
     {
-        if (drag)
-        {
-            transform.position = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, Camera.main.WorldToScreenPoint(gameObject.transform.position).z));
-        }
+        mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
+
+        mOffset = gameObject.transform.position - GetMouseWorldPos();
     }
 
-    public void EnbleDrag()
+    private Vector3 GetMouseWorldPos()
     {
-        if (Input.GetButton("Fire1"))
-        {
-            drag = true;
-            rb.isKinematic = true;
-        }
+        Vector3 mousePoint = Input.mousePosition;
+
+        mousePoint.z = mZCoord;
+
+        return Camera.main.ScreenToWorldPoint(mousePoint);
     }
 
-    public void DisableDrag()
+    public void OnMouseDrag()
     {
-        drag = false;
+        Vector3 move = GetMouseWorldPos() + mOffset;
+        transform.position = new Vector3 (move.x, Mathf.Clamp(move.y, 0f, 28.0f), move.z);
+        rb.isKinematic = true;
+    }
+
+    public void OnMouseUp()
+    {
         rb.isKinematic = false;
     }
 }
+
