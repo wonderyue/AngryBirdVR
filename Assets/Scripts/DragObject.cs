@@ -5,41 +5,33 @@ using UnityEngine;
 public class DragObject : MonoBehaviour
 {
     Rigidbody rb;
-
-    private Vector3 mOffset;
-
-    private float mZCoord;
+    bool drag = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    public void OnMouseDown()
+    void Update()
     {
-        mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
-
-        mOffset = gameObject.transform.position - GetMouseWorldPos();
+        if (drag)
+        {
+            transform.position = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, Camera.main.WorldToScreenPoint(gameObject.transform.position).z));
+        }
     }
 
-    private Vector3 GetMouseWorldPos()
+    public void EnbleDrag()
     {
-        Vector3 mousePoint = Input.mousePosition;
-
-        mousePoint.z = mZCoord;
-
-        return Camera.main.ScreenToWorldPoint(mousePoint);
+        if (Input.GetButton("Fire1"))
+        {
+            drag = true;
+            rb.isKinematic = true;
+        }
     }
 
-    public void OnMouseDrag()
+    public void DisableDrag()
     {
-        Vector3 move = GetMouseWorldPos() + mOffset;
-        transform.position = new Vector3 (move.x, Mathf.Clamp(move.y, 0f, 28.0f), move.z);
-        rb.isKinematic = true;
-    }
-
-    public void OnMouseUp()
-    {
+        drag = false;
         rb.isKinematic = false;
     }
 }
