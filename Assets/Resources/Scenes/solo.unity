@@ -1720,9 +1720,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 323775832}
-          m_MethodName: SetActive
-          m_Mode: 6
+        - m_Target: {fileID: 323775836}
+          m_MethodName: Collect
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1809,17 +1809,29 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: 
+      - m_Target: {fileID: 1876198644}
+        m_MethodName: HasKey
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &323775836 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5838518299560953016, guid: c6e9532fabc859f4e8fa3de744ab3b83,
+    type: 3}
+  m_PrefabInstance: {fileID: 449054989}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323775832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d3c39a849b0399459e91e0e6abc1f91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &363807491
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10330,6 +10342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 0.8
+  enable: 0
 --- !u!114 &1865026794
 MonoBehaviour:
   m_ObjectHideFlags: 0

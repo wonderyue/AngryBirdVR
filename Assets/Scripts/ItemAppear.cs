@@ -15,7 +15,7 @@ public class ItemAppear : MonoBehaviour
     {
 
     }
-    void OnMouseDown()
+    public void Collect()
     {
         GoldKey.SetActive(false);
         Panel.SetActive(true);

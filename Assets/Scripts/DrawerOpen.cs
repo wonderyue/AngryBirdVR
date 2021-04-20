@@ -6,8 +6,7 @@ public class DrawerOpen : MonoBehaviour
 {
     public float distance = 0.8f;
     private bool opened;
-    private bool enable;
-    private bool selected;
+    public bool enable;
     private Vector3 initialPosition;
     private Vector3 position;
 
@@ -17,7 +16,6 @@ public class DrawerOpen : MonoBehaviour
     {
         opened = false;
         enable = false;
-        selected = false;
         initialPosition = transform.position;
         position = initialPosition;
       
