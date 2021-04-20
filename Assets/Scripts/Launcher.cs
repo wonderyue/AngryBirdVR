@@ -1,8 +1,7 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-
+﻿using Photon.Pun;
 using Photon.Realtime;
-using Photon.Pun;
+using UnityEngine;
+using UnityEngine.UI;
 
 #pragma warning disable 649
 
@@ -86,7 +85,6 @@ public class Launcher : MonoBehaviourPunCallbacks
         }
         else
         {
-
             LogFeedback("Connecting...");
             // #Critical, we must first and foremost connect to Photon Online Server.
             PhotonNetwork.ConnectUsingSettings();
@@ -180,6 +178,10 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         LogFeedback("<Color=Green>OnJoinedRoom</Color> with " + PhotonNetwork.CurrentRoom.PlayerCount + " Player(s)");
         PhotonNetwork.NickName = "Player " + PhotonNetwork.CurrentRoom.PlayerCount;
+        if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount == PhotonNetwork.CurrentRoom.MaxPlayers)
+        {
+            PhotonNetwork.LoadLevel("duo");
+        }
     }
 
     /// <summary>

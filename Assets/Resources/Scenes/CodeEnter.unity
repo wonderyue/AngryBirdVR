@@ -743,6 +743,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   codeText: {fileID: 56006590}
   key: 1234
+  leftDoor: {fileID: 0}
+  rightDoor: {fileID: 0}
 --- !u!1 &414055014
 GameObject:
   m_ObjectHideFlags: 0

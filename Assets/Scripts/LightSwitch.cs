@@ -6,13 +6,17 @@ public class LightSwitch : MonoBehaviour
 {
     float xRotation = 64.298f;
     public static GameObject switcher;
-    private static GameObject[] lights;
+    public GameObject light1;
+    public GameObject light2;
+    public GameObject light3;
+
+    //private static GameObject[] lights;
     bool lightOn = true;
 
     private void Awake()
     {
         switcher = GameObject.FindGameObjectsWithTag("Switcher")[0];
-        lights = GameObject.FindGameObjectsWithTag("Lights");
+        //lights = GameObject.FindGameObjectsWithTag("Lights");
     }
 
     // Start is called before the first frame update
@@ -32,17 +36,17 @@ public class LightSwitch : MonoBehaviour
         if (lightOn)
         {
             switcher.transform.Rotate(xRotation, 0.0f, 0.0f, Space.Self);
-            foreach(GameObject light in lights)
-            {
-                light.SetActive(false);
-            }
+
+            light1.SetActive(false);
+            light2.SetActive(false);
+            light3.SetActive(false);
+
         } else
         {
             switcher.transform.Rotate(-xRotation, 0.0f, 0.0f, Space.Self);
-            foreach (GameObject light in lights)
-            {
-                light.SetActive(true);
-            }
+            light1.SetActive(true);
+            light2.SetActive(true);
+            light3.SetActive(true);
         }
         lightOn = !lightOn;
     }

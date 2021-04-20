@@ -31,8 +31,7 @@ public class CodeEnter : MonoBehaviour
 
     public void DelDigit()
     {
-        if (!open)
-
+        if(!open)
         {
             codeTextValue = codeTextValue.Substring(0, codeTextValue.Length - 1);
         }
@@ -57,8 +56,8 @@ public class CodeEnter : MonoBehaviour
                 rightDoor.transform.rotation = Quaternion.Euler(0f, 120f, 0f);
                 leftDoor.transform.rotation = Quaternion.Euler(0f, -120f, 0f);
                 GameObject.Find("Time Text").SendMessage("Finish");
-
             }
+  
             else
             {
                 codeTextValue = "";

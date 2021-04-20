@@ -6,8 +6,7 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    public GameObject timerText;
-    private TextMesh textObject;
+    public Text textObject;
     private float startTime;
     private float elapsedTime = 0f;
     private TimeSpan timePlaying;
@@ -16,7 +15,6 @@ public class Timer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        textObject = timerText.GetComponent<TextMesh>();
         startTime = Time.time;
         textObject.text = "Time: 00:00:00";
     }

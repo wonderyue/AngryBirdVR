@@ -5,14 +5,15 @@ using UnityEngine;
 public class DragObject : MonoBehaviour
 {
     Rigidbody rb;
-    bool drag = false;
 
+    private Vector3 mOffset;
+
+    private float mZCoord;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
-
 
     public void OnMouseDown()
     {
@@ -42,4 +43,3 @@ public class DragObject : MonoBehaviour
         rb.isKinematic = false;
     }
 }
-
