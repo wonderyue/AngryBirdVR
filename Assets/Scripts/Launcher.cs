@@ -25,6 +25,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     [SerializeField]
     private byte maxPlayersPerRoom = 2;
 
+
     #endregion
 
     #region Private Fields
@@ -53,6 +54,22 @@ public class Launcher : MonoBehaviourPunCallbacks
         // this makes sure we can use PhotonNetwork.LoadLevel() on the master client and all clients in the same room sync their level automatically
         PhotonNetwork.AutomaticallySyncScene = true;
 
+    }
+
+
+    /// <summary>
+    /// MonoBehaviour method called per frame.
+    /// </summary>
+    void Update()
+    {
+        if (Input.GetButtonDown("Submit"))
+        {
+            Connect();
+        }
+        if (Input.GetButtonDown("Fire1"))
+        {
+            StartOfflineGame();
+        }
     }
 
     #endregion
