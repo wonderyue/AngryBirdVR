@@ -1,9 +1,8 @@
 ﻿
+using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-using Photon.Realtime;
-using Photon.Pun;
 
 #pragma warning disable 649
 
@@ -48,15 +47,15 @@ public class GameManager : MonoBehaviourPunCallbacks
     void Start()
     {
         Instance = this;
-        if (PhotonNetwork.IsMasterClient) 
+        if (PhotonNetwork.IsMasterClient || !PhotonNetwork.IsConnected)
         {
             playerObject.transform.position = player1SpawnPoint.position;
-        } 
-        else 
+        }
+        else
         {
             playerObject.transform.position = player2SpawnPoint.position;
         }
-        PhotonNetwork.Instantiate("Prefabs/PhotonSpeaker", Vector3.zero, Quaternion.identity,0);
+        PhotonNetwork.Instantiate("Prefabs/PhotonSpeaker", Vector3.zero, Quaternion.identity, 0);
     }
 
     /// <summary>
