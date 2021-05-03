@@ -53,23 +53,6 @@ public class Launcher : MonoBehaviourPunCallbacks
         // #Critical
         // this makes sure we can use PhotonNetwork.LoadLevel() on the master client and all clients in the same room sync their level automatically
         PhotonNetwork.AutomaticallySyncScene = true;
-
-    }
-
-
-    /// <summary>
-    /// MonoBehaviour method called per frame.
-    /// </summary>
-    void Update()
-    {
-        if (Input.GetButtonDown("Submit"))
-        {
-            Connect();
-        }
-        if (Input.GetButtonDown("Fire1"))
-        {
-            StartOfflineGame();
-        }
     }
 
     #endregion
@@ -149,7 +132,6 @@ public class Launcher : MonoBehaviourPunCallbacks
         if (isConnecting)
         {
             LogFeedback("OnConnectedToMaster: Next -> try to Join Random Room");
-
             // #Critical: The first we try to do is to join a potential existing room. If there is, good, else, we'll be called back with OnJoinRandomFailed()
             PhotonNetwork.JoinRandomRoom();
         }
@@ -163,8 +145,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     /// </remarks>
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
-        LogFeedback("<Color=Red>OnJoinRandomFailed</Color>: Next -> Create a new Room");
-
+        LogFeedback("Create a new Room");
         // #Critical: we failed to join a random room, maybe none exists or they are all full. No worries, we create a new room.
         PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = this.maxPlayersPerRoom });
     }
