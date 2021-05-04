@@ -9,7 +9,7 @@ public class DrawerOpen : MonoBehaviour
     public bool enable;
     private Vector3 initialPosition;
     private Vector3 position;
-
+    public GameObject KeyHint;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +18,6 @@ public class DrawerOpen : MonoBehaviour
         enable = false;
         initialPosition = transform.position;
         position = initialPosition;
-      
     }
 
     // Update is called once per frame
@@ -36,6 +35,7 @@ public class DrawerOpen : MonoBehaviour
     {
         if (enable)
         {
+            KeyHint.SetActive(false);
             if (!opened)
             {
                 position = new Vector3(initialPosition.x, initialPosition.y, initialPosition.z + distance);
@@ -46,6 +46,9 @@ public class DrawerOpen : MonoBehaviour
                 position = initialPosition;
                 opened = false;
             }
+        } else
+        {
+            KeyHint.SetActive(true);
         }
     }
 }
