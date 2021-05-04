@@ -1626,6 +1626,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &291323203 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7239028770921859934, guid: 67e2cb687ba4afc4ca227ab5848aeb95,
+    type: 3}
+  m_PrefabInstance: {fileID: 835715826}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291323200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d3c39a849b0399459e91e0e6abc1f91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &291323204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1643,9 +1655,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 291323200}
-          m_MethodName: SetActive
-          m_Mode: 6
+        - m_Target: {fileID: 291323203}
+          m_MethodName: Collect
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1696,18 +1708,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 291323200}
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &323775832 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1795722793214472, guid: c6e9532fabc859f4e8fa3de744ab3b83,
