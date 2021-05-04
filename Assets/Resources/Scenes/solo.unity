@@ -3131,7 +3131,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 600298549}
-          m_MethodName: DisableDrag
+          m_MethodName: PointEnter
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3146,7 +3146,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 600298549}
-          m_MethodName: EnbleDrag
+          m_MethodName: PointExit
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3857,6 +3857,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6d43d1fedd4aff43b4a9bae73fe71ae, type: 3}
+--- !u!108 &686967376 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 108157655974722990, guid: f6d43d1fedd4aff43b4a9bae73fe71ae,
+    type: 3}
+  m_PrefabInstance: {fileID: 686967375}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &698998296
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3937,6 +3943,12 @@ PrefabInstance:
 --- !u!4 &698998297 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4810721845168622, guid: f6d43d1fedd4aff43b4a9bae73fe71ae,
+    type: 3}
+  m_PrefabInstance: {fileID: 698998296}
+  m_PrefabAsset: {fileID: 0}
+--- !u!108 &698998298 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 108157655974722990, guid: f6d43d1fedd4aff43b4a9bae73fe71ae,
     type: 3}
   m_PrefabInstance: {fileID: 698998296}
   m_PrefabAsset: {fileID: 0}
@@ -5432,6 +5444,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1801678111358608, guid: 81f542f2fd5cb2c42850b2c71e042887, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1809723309964710, guid: 81f542f2fd5cb2c42850b2c71e042887, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -9908,7 +9924,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1760325744}
-          m_MethodName: LightOn
+          m_MethodName: Switch
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -9930,7 +9946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6577cc1d1bf21d94bb902b6adb0fbb58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  light: {fileID: 1820131874}
+  target: {fileID: 686967376}
 --- !u!1001 &1799006754
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10609,7 +10625,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1924533041}
-          m_MethodName: LightOn
+          m_MethodName: Switch
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -10631,7 +10647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6577cc1d1bf21d94bb902b6adb0fbb58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  light: {fileID: 1184599090}
+  target: {fileID: 698998298}
 --- !u!1 &1938487406
 GameObject:
   m_ObjectHideFlags: 0

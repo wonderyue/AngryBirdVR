@@ -1,31 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
 public class LightTurn : MonoBehaviour
 {
-    public GameObject light;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Light target;
+    private PhotonView photonView;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        photonView = target.GetComponent<PhotonView>();
     }
-
-    public void LightOn()
+    public void Switch()
     {
-        if (light.activeSelf)
-        {
-            light.SetActive(false);
-        } else
-        {
-            light.SetActive(true);
-        }
+        if (photonView != null)
+            photonView.TransferOwnership(PhotonNetwork.LocalPlayer);
+        target.enabled = !target.enabled;
     }
 }
