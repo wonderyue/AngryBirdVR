@@ -10,6 +10,7 @@ public class CodeEnter : MonoBehaviour
     public string key = "1234";
     bool open = false;
     public GameObject leftDoor, rightDoor;
+    public GameObject codeLocker;
 
     // Update is called once per frame
     void Update()
@@ -63,5 +64,10 @@ public class CodeEnter : MonoBehaviour
                 codeTextValue = "";
             }
         }
+    }
+
+    public void Show()
+    {
+        codeLocker.SetActive(true);
     }
 }

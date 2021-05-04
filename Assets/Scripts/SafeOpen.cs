@@ -9,6 +9,7 @@ public class SafeOpen : MonoBehaviour
     bool open = false;
     public GameObject door;
     public GameObject hint;
+    public GameObject book;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,7 +49,8 @@ public class SafeOpen : MonoBehaviour
             if (codeTextValue == key)
             {
                 open = true;
-                door.transform.rotation = Quaternion.Euler(0f, -30f, 0f);
+                door.transform.rotation = Quaternion.Euler(0f, -20f, 0f);
+                book.SetActive(true);
             }
             else
             {
