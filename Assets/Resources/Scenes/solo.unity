@@ -1696,7 +1696,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 291323200}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &323775832 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1795722793214472, guid: c6e9532fabc859f4e8fa3de744ab3b83,
@@ -3131,7 +3142,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 600298549}
-          m_MethodName: PointEnter
+          m_MethodName: PointExit
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3146,7 +3157,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 600298549}
-          m_MethodName: PointExit
+          m_MethodName: PointEnter
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -8726,7 +8737,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1501748579}
-          m_MethodName: DisableDrag
+          m_MethodName: PointExit
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -8741,7 +8752,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1501748579}
-          m_MethodName: EnbleDrag
+          m_MethodName: PointEnter
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
