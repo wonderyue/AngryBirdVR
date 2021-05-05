@@ -5,20 +5,17 @@ using UnityEngine;
 public class ItemShow : MonoBehaviour
 {
     public GameObject item;
+    public Light lightComp;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    public void showItem()
-    {
-        item.SetActive(true);
+        if (item.activeSelf == lightComp.enabled)
+            item.SetActive(!lightComp.enabled);
     }
 }
