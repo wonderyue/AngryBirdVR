@@ -12,6 +12,13 @@ public class CodeEnter : MonoBehaviour
     public GameObject leftDoor, rightDoor;
     public GameObject codeLocker;
 
+    public AudioClip Sound;
+    private AudioSource source;
+
+    void Start(){
+        source = GetComponent<AudioSource>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -57,6 +64,8 @@ public class CodeEnter : MonoBehaviour
                 rightDoor.transform.rotation = Quaternion.Euler(0f, 120f, 0f);
                 leftDoor.transform.rotation = Quaternion.Euler(0f, -120f, 0f);
                 GameObject.Find("Time Text").SendMessage("Finish");
+                source.PlayOneShot(Sound, 1F);   //play sound
+
             }
   
             else
