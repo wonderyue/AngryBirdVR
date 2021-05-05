@@ -10,10 +10,14 @@ public class SafeOpen : MonoBehaviour
     public GameObject door;
     public GameObject hint;
     public GameObject book;
+
+    public AudioClip Sound;  //assign sound to play
+    private AudioSource source;   //use AudioSource to play AudioClip
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        source = GetComponent<AudioSource>();  //get the AudioSource Component of this Object
     }
 
     // Update is called once per frame
@@ -51,6 +55,8 @@ public class SafeOpen : MonoBehaviour
                 open = true;
                 door.transform.rotation = Quaternion.Euler(0f, -20f, 0f);
                 book.SetActive(true);
+                source.PlayOneShot(Sound, 1F);   //play sound
+
             }
             else
             {
@@ -61,8 +67,6 @@ public class SafeOpen : MonoBehaviour
 
     public void Hint()
     {
-        
-            hint.SetActive(true);
-        
+        hint.SetActive(true);
     }
 }
